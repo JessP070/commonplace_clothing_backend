@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_184107) do
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "cart_id"
+    t.bigint "cart_id", null: false
     t.index ["cart_id"], name: "index_products_on_cart_id"
   end
 
