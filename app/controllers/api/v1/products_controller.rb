@@ -1,6 +1,6 @@
 class Api::V1::ProductsController < ApplicationController
     def index
-        @products = Products.all
+        products = Product.all
        
         render json: ProductSerializer.new(products)
     end
@@ -8,7 +8,7 @@ class Api::V1::ProductsController < ApplicationController
     def create
         product = Product.new(products_params)
         if product.save
-            render json: product, status: :accepted
+            render json: ProductSerializer.new(products), status: :accepted
         else 
             render json: {errors: product.errors.full_messages}, status: :unprocessible_entity
         end
